@@ -1,7 +1,6 @@
-const args = process.argv.slice(2)
-const operation = args[0]
-const a = Number(args[1])
-const b = Number(args[2])
+const operation = process.argv[0]
+const a = Number(process.argv[1])
+const b = Number(process.argv[2])
 
 if (!operation || Number.isNaN(a) || Number.isNaN(b)) {
   console.log('Usage: node calculator.js add 10 5')
