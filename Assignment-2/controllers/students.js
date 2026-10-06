@@ -24,15 +24,15 @@ const getStudent=(req,res)=>{
 };
 
 const addStudent=(req,res)=>{
-    const {name,age,id} = req.body;
-    if (!name || !age || !id) {
+    const {name,course,id} = req.body;
+    if (!name || !course || !id) {
         return res.status(400).json({
-            message: "provide name, age and id",
+            message: "provide name, course and id",
             success: false
         });
     };
     let data = GetStudentFromFile();
-    data.push({name,age,id});
+    data.push({name,course,id});
     fs.writeFileSync("database/data.json",JSON.stringify(data,null,2));
     res.status(200).json({
             message: "Student added successfully",
@@ -42,11 +42,11 @@ const addStudent=(req,res)=>{
 };
 const updateStudent = (req, res) => {
     const {id}=req.params;
-    const { name, age} = req.body || {};
+    const { name, course} = req.body || {};
 
-    if (!name || !age || !id) {
+    if (!name || !course || !id) {
         return res.status(400).json({
-            message: "provide name, age and id",
+            message: "provide name, course and id",
             success: false
         });
     }
@@ -61,7 +61,7 @@ const updateStudent = (req, res) => {
         });
     }
 
-    data[userIndex] = { name, age, id: String(id) };
+    data[userIndex] = { name, course, id: String(id) };
     fs.writeFileSync("database/data.json", JSON.stringify(data, null, 2));
 
     res.status(200).json({
