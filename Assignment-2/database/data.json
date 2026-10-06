@@ -1,12 +1,12 @@
 [
   {
     "name": "John Doe",
-    "course": 40,
+    "course": "WEBDEV",
     "id": "2"
   },
   {
     "name": "John Doe",
-    "course": 20,
+    "course": "DBMS",
     "id": "3"
   }
 ]
